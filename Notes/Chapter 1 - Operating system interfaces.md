@@ -24,3 +24,14 @@ change of PID of parent won't affect PID of child
 1. `sbrk(n)` to grow data memory by n bytes; sbrk returns the location of the new memory
 
 ## 1.2 I/O and File descriptor
+### I. file descriptor
+1. a samll integer representing a kernel-managed object that a process may read from or write to
+2. abstracts away the differences between files, pipes, and devices, making them all look like streams of bytes
+3. by convention, a process reads from file descriptor 0 (standard input), writes output to file descriptor 1 (standard output), and writes error messages to file descriptor 2 (standard error)
+4. `fork` and `exec` will copy the file descriptor from caller
+### II. functions
+1. `read(fd, buf, n)` reads at most `n` bytes from the file descriptor `fd`, copies them into `buf`, and returns the number of bytes read, `read` reads consequently, if no more bytes to read, `read` returns zero to indicate the end
+2. `write(fd, buf, n)` writes `n` bytes to the file descriptor `fd` from `buf`, and returns the number of bytes written, like `read`, `write` picks up where the previous one left off
+3. 
+4. 
+5. 
